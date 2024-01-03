@@ -1,0 +1,93 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+   
+   <<< 22 - 25 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 4 >>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Autocomplete Term)
+       Approach: The approach I took for this problem was to first understand the question properly and review all the practice problems.
+       I then started by creating a flow chart to get a good overlay of how to code for this problem.
+       I created instance variables String query and long weight. In Term(String query) and Term(String query, long weight), if query is null,
+       then a new NullPointerException() is thrown, and if weight is less than 0, then a new IllegalArgumentException() is thrown.
+       I then initialized the instance variables in both public Term(). String toString() will return weight and query separated by a tab,
+       and int compareTo() will return if this.query is less than, greater than, or equal to other.query.
+       byReverseWeightOrder() will return a comparator for comparing two terms in reverse order of their weights,
+       and byPrefixOrder() will return a comparator for comparing two terms by their prefixes of length r. If length r was less than 0,
+       then a new IllegalArgumentException() would've been thrown. In the Reverse-weight comparator, int compare() will compare if v.weight is less than,
+       greater than, or equal to w.weight. In the Prefix-order comparator, I created int r, which is prefix length,
+       and it also initialized in PrefixOrder(int r). And in int compare(), string a is a substring of v of length min(r, v.query.length()),
+       and string b is a substring of w of length min(r, w.query.length()).
+       And last but not least, int compare() will return if string a is less than, greater than, or equal to string b.
+
+       Issues and resolution: One of the issues I had was understanding the problem and how to approach it.
+       I basically reviewed the lecture notes, discussion sessions, and practice problems to get a better understanding,
+       and I created a flow chart to plan out my approach. Another issue I had was constructing int compareTo(), which compares this.query to other.query.
+       At first, I tried the traditional approach of using if-else statements to return -1, 1, and 0 depending on the result.
+       But I ran into multiple compiling errors and unfortunately did not work.
+       I then figured out that I can basically use .compareTo() to compare this.query to other.query in a simpler way.
+       Another major issue I had was in int compare(Term v, Term w). At first breaking down string a and string b as a substring of a length was confusing.
+       To clear out my confusion, I looked through the textbook and youtube videos on substring and found a method to break down into strings a and b.
+       Other than a few coding errors and compiling issues, I was able to finish problem 1 using the textbook,
+       discussion session, practice problems, and lecture notes.
+
+   Problem 2 (Binary Search Deluxe)
+       Approach: I started by understanding the question properly and made sure to review the checklist and practice problems.
+       I then created an if-statement stating, if a is null, or key is null, or c is null, then it will throw a new NullPointerException("Null a, key, or c").
+       I then copied the standard binary search program from the analysis of algorithms slides. By slowly tweaking the binary search program,
+       I created an int index equal to -1, in order to return index instead of mid. For int cmp, I changed key.compareTo(a[mid]) to
+       c.compare(a[mid], key) in order to integrate the comparator c. I then tweaked the if-else-statements, and in the else statement,
+       instead of returning mid, it will set index equal to mid and then set hi = mid - 1. (Stated in the discussion session).
+       Last but not least, after the while-loop ends, it will return the value of index.
+       I then implemented this method similarly into static int lastIndexOf(Key[] a, Key key, Comparator<Key> c).
+
+       Issues and resolution: I didn't face any major issues with problem 2, as it seemed straightforward. The checklist didn't give much information,
+       and I was confused about how to modify the standard binary search program and where to find it. But luckily, Professor Richard did a great job explaining
+       problem 2 in the discussion session and cleared all my doubts. After that, I then integrated the binary search program and tweaked it for both first and lastIndexOf().
+       I faced minor coding and compiling errors, but with trial and errors, I was able to solve problem 2.
+       The major issue that still lingered was that my program only works for the input "love," and not "coffee," or "java."
+       I tried my best to solve the issue by looking through the textbook and following the checklist hints, but I was not able to figure it out.
+       That was the only issue I wasn't able to solve.
+
+   Problem 3 (Autocomplete)
+       Approach: I started by reviewing the practice problems and understanding the question thoroughly.
+       I then first created a private array of terms, Term[] terms. In Autocomplete(), if terms are null,
+       then a new IllegalArgumentException() will be thrown. I constructed a data structure from an array of terms,
+       and then initialized this.terms to a defensive copy of terms. And at the end, it sorted this.terms.
+       In allMatches[], if prefix is null, then a new IllegalArgumentException() will be thrown. I then set term p to new Term(prefix, 0).
+       And using BinarySearchDeluxe and p, I then found the index i of the first term in terms.
+       I then also found index j of the last term in terms. Using index i and j, I then constructed an array of matches with n elements from terms.
+       After sorting matches in reverse order of weight, it lastly returned the sorted array.
+       In numberOfMatches(), if prefix is null, then it will throw a new IllegalArgumentException(). Same as before, I set Term p to new Term(prefix, 0).
+       Using BinarySearchDeluxe and p, I found index i and j, first and last term in terms. And last but not least, using the indices i and j,
+       I computed the number of terms, which is int n, and returned n.
+
+       Issues and resolution: A major issue I had was understanding problem 3 and how to approach the problem itself.
+       The solution I found to that was reviewing the practice problems to get a good refresher, and attending the Discussion session.
+       Professor Richard Anarfi did a great job explaining the goal and approach of Project 3 for each problem.
+       Another issue I faced was implementing BinarySearchDeluxe into Autocomplete.java.
+       At first, I had a few errors but after reviewing the practice problems, I was able to tweak my code and make it work.
+       Other than minor coding errors, I was able to complete this problem by using the checklist and textbook.
+   
+4. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Richard Anarfi     TA           Discussion Session
+   Saradhi Valluru    Father       Planning & Approach
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   This was an overall difficult, and fun project. It took me some time to understand the problems,
+   but with the discussion session and the practice problems, I was able to do fine for this project.
+   I'd say Project 3 Autocomplete is great and I'd recommend it to anyone doing java.

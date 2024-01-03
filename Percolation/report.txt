@@ -1,0 +1,97 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 30+ >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 5 >>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Array Percolation)
+       Approach: I first started by reading the checklist and writeup carefully and understanding the problem thoroughly.
+       I started by following the checklist hints by creating a Percolation system int n, boolean [][] open, boolean[][] full, and int openSites,
+       which counts the number of open sites. Using the constraints, if i and j are greater than and equal to 1, and less than and equal to n,
+       then the program would return. If the site (i, j) is not open and site (i, j) is full, the program would return.
+       If the if conditions are not met, then site (i, j) will fill. After the site is filled, floodFill() will be called recursively to the north,
+       south, east, and west of the existing site. In ArrayPercolation, I simply constructed an n x n percolation system with all sites blocked and initialized the variables.
+       Open() opened a site if it isn't already opened and incremented openSites by 1.
+       In boolean isFull(), I created a nxn array of booleans called full and called floodFill() on every site in the first row of the percolation system.
+       In the end, it returned full[i][j]. Last but not least, numberOfOpenSites returns the number of open sites and percolates() returns whether a system percolates or not.
+
+       Issues and resolution: One of the major issues I had with this problem was trying to understand the overall question and how to approach it.
+       But professor Swami's and Professor Richard's explanations helped me understand better.
+       I first had trouble with my floodFill() program but was later able to resolve that.
+       When I tried to call floodFill() in isFull() to every site in the first row, it always ended up getting in an infinite loop.
+       I am still currently stuck in that situation, and I don't know if it's my floodFill() fault or my isFull() program.
+       Numerous errors pointed out to my floodFill(), isFull(), and percolates(), but fixing one
+       after another created more errors in my code.
+       Unfortunately, I wasn't able to solve problem 1.
+       The exercises along with the checklist hints and textbook helped me understand the fundamentals of this project.
+
+   Problem 2 (Union Find Percolation)
+       Approach: The approach I took for this problem was thoroughly understanding what the question was about.
+       I read the checklist and write-up carefully, but I was still confused about my approach.
+       I looked at all the files for this project, including the data files, to get a firm understanding.
+       I used input10.txt and input10.png to test my understanding of the project, by creating a 10x10 grid on google sheets.
+       I mapped out sites using inputs i and j to see how the 2D arrays functioned.
+       I also had to learn how to create UF and overall use WeightedQuickUnionUF in my project.
+       I followed the checklist by creating Percolation systems int n, boolean[][] open, int openSites, and two WeightedQuickUnionUF, uf and uf2 (source & sink).
+       After initializing the variables, I constructed the n x n system with all sites blocked and also connected the source and sink.
+       In open(), I checked if i and j are in bounds (if not it will throw an "Illegal i or j"), and if the existing site is not open,
+       I used isOpen to open the site and increment openSites by one. I then created if statements to check for all the bounds north, south, east, west.
+       The first and last rows will connect with the source and sink, and if neighboring sites are open, they will connect.
+       While i and j are still in bounds, isOpen() returns if site is open or not, isFull() returns if site is full or not,
+       and percolates() returns if the system percolates.
+
+       Issues and resolution: The major issue I faced with this problem was understanding the question itself.
+       I had to read the checklist and writeup several times.
+       I even watched Swami's Percolation explanation on YouTube.
+       I also didn't know how to integrate WeightedQuickUnionUF into my program or know what it even was.
+       But after searching on google and figuring out more about UF, I was able to start coding.
+       At first, I only created one uf, but later realized I had to create two as uf1 was a source and uf2 was a sink.
+       Another major problem was my approach, as I just dived right into the project coding.
+       After I realized my code wasn't functioning properly, I stepped back and drew a layout to get a clear understanding of the overall problem.
+       Overall, the Discussion session, checklist hints, and the textbook helped me a lot.
+
+   Problem 3 (Estimation of Percolation Threshold)
+       Approach: I first read the checklist and the write-up instructions to understand the problem carefully.
+       Before I started to code, I tried to lay out my plan of code on a piece of paper.
+       This helped me many times approach the problem more organized and understand the overall objective.
+       I followed the checklist by creating int m, which was the number of experiments, and double[][] x which corresponded with Percolation thresholds.
+       I started initializing the instance variables and creating an n x n percolation system in PercolationStats().
+       If n was less than or equal to 0 or m was less than or equal to 0, the constructor would throw an "Illegal n or m."
+       Using a for loop, the site (i, j) would be chosen randomly, using StdRandom.uniform(), and open it if it already hasn't been.
+       I then used the formula to calculate the percolation threshold as the fraction of sites opened and stored it in x[i].
+       I used the remaining formulas in the checklist to construct and return correct values for mean(), stddev(), confidenceLow(), confidenceHigh().
+
+       Issues and resolution: The main issue I faced was understanding the question itself.
+       I went through the checklist and write-up several times to get a clear understanding but, I really couldn't comprehend.
+       But once I attended my discussion session, Professor Richard explained project 1 clearly,
+       which gave me an understanding of how I should approach this question.
+       I also had trouble integrating the given formulas into mean(), stddev(), confidenceLow(), and confidenceHigh().
+       But after asking my classmates for advice, and some help from my father, I was able to integrate the formulas into problem 3.
+       I didn't face any major problems other than small errors and coding mistakes.
+       Along with the lecture and discussion session, the exercises,  checklist, and textbook helped a lot.
+
+4. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Richard Anarfi     TA           Discussion Session
+   Saradhi Valluru    Father       Project breakdown and error questions
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   This was one of the most difficult projects I've ever done. I had some knowledge of java, but it was only the basics.
+   The project tests my limits and my overall understanding of the concepts taught in this class.
+   This project also made me rewatch lecture videos, discussion sessions, and professor Swami explaining Percolation on YouTube.
+   I was not expecting my first java project to be this difficult.
+   But I learned that I need to practice more on the concepts and be prepared for my next upcoming project.

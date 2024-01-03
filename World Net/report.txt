@@ -1,0 +1,117 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 30 - 35 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 5 >>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (WordNet Data Type)
+      Approach: The approach I took for WordNet.java is to first understand the question properly, follow the API instructions,
+      and overall make sure to understand the concepts. I started Problem 1 after I finished problem 2,
+      which was ShortestCommonAncestor.java, followed by creating a flowchart to having an understandable approach.
+      I started by constructing a symbol table that maps a synset noun to a set of synset IDs and a symbol table that maps a
+      synset ID to the corresponding synset string, which was SeparateChainingHashST<String, Set<Integer>> st,
+      and SeparateChainingHashST<Integer, String> rst. I also constructed a ShortestCommonAncestor sca and DiGraph G.
+      In WordNet(), I initialized st and rst to the appropriate values. If synsets or hypernyms are null, a NullPointerException()
+      will be thrown stating "synsets or hypernyms are null." Using DiGraph object G, which is representing a rooted DAG and
+      with vertices V, it then adds edges and is read in from the hypernyms file. Then using sca, shortest common ancestor,
+      it is initialized by using G. For Iterable<> nouns(), if word is null, then a NullPointerException() is thrown stating
+      "word is null." It then returns all WordNet nouns. For String sca(), if noun1 and noun2 are equal to null, then a
+      NullPointerException() is thrown with a message. If noun1 and noun2 are not nouns, then an IllegalArgumentException()
+      is thrown with a message. It then using sca, will compute and return a synset that is the shortest common ancestor of
+      noun1 and noun2. For int distance(), if noun1 and noun2 are equal to null, then a NullPointerException() is thrown with
+      a message. If noun1 and noun2 are not nouns, then an IllegalArgumentException() is thrown with a message. It then using
+      sca, will compute and return the length of the shortest ancestral path between noun1 and noun2. Last but not least, I used
+      check_style to check the style of my code.
+
+      Issues and resolution: One issue I had was understanding the problem and the overall concepts. But with the help of the
+      exercise questions and slide notes, I was able to create an approach. Another major issue I faced was following the
+      checklist by creating RedBlackBST instead of SeparateChainingHashST. I ran into multiple coding errors and issues,
+      but I later looked at the import and realized that RedBlackBST was not even imported. To use all the imports properly,
+      I then replaced RedBlackBST with SeparateChainingHashST and then continued from there. The most trouble I had coding was
+      for public WordNet(). The checklist seemed unclear to me, and I first had an issue starting. But looking back at the
+      exercise problems, discussion sessions, and some quick YouTube videos, I was able to slowly change my code and make it
+      able to work. My while and for-loops also had minor issues, but with check and error, I was able to resolve the issues.
+      Other than WordNet(), I didn't have trouble in any other areas other than creating corner cases, and computing and returning.
+      The Textbook, discussion session, and notes all helped me solve any issues I had in problem 1.
+
+   Problem 2 (ShortestCommonAncestor Data Type)
+      Approach: I first started by clearly understanding the question and concepts properly for this problem.
+      Knowing I would be using ShortestCommonAncestor in WordNet.java, I tackled problem 2 first. After understanding the
+      concepts and creating a flowchart for problem 2, I started by creating private DiGraph G, which is a rooted DAG.
+      For ShortestCommonAncestor(), if G is equal to null, then a new NullPointerException() would be thrown stating, "G is null."
+      I then initialized G to this.G. For int length(), if v is less than 0 or v is greater than or equal to the number of vertices
+      in G, an IndexOutOfBoundsException() would be thrown with a message. Similar thing with w, if w is less than 0 or w is
+      greater than or equal to the number of vertices in G, an IndexOutOfBoundsException() would be thrown with a message.
+      Using ancestor(v, w) and distFrom() methods, int length() will return the length of the shortest ancestral path between
+      vertices v and w. For int ancestor(), if v is less than 0 or v is greater than or equal to the number of vertices in G,
+      an IndexOutOfBoundsException() would be thrown with a message. Similar thing with w, if w is less than 0 or w is greater
+      than or equal to the number of vertices in G, an IndexOutOfBoundsException() would be thrown with a message. Using for-loops
+      and if statements, with distFrom() methods, int ancestor() returns the shortest common ancestor of vertices v and w.
+      For int length(A, B), if A or B is equal to null, then a new NullPointerException() would be thrown with a message.
+      Using the methods triad(A, B) and distFrom(), int length(A, B) gets the length of the shortest ancestral path of vertex
+      subsets A and B and returns it. For int ancestor(A, B), if A or B is equal to null, then a new NullPointerException()
+      would be thrown with a message. Int ancestor(A, B) simply returns the shortest common ancestor of vertex subsets A and B,
+      using the method triad(A, B). For SeparateChainingHashST<> distFrom(), I created SeparatedChainingHashST<> map, for map of
+      vertices, and LinkedQueue<> q. Using while and for-loops, SeparateChainingHashST<> distFrom() returns a map of vertices
+      reachable from v and their respective shortest distances from v, computed by using Breadth-First Search starting at v.
+      For int[] triad(), I created and initialized variables shortDist, shortAnc, v, and w. Using for-loops and if statements,
+      int[] triad() returns a 3-element array containing a shortest common ancestor of A and B, vertex v from A, and vertex w
+      from B, using length(v, w) and ancestor(v, w) methods. Last but not least, I used check_style to check the style of my code.
+
+      Issues and resolution: A major issue I faced for problem 2 was understanding the question and the overall approach for
+      the problem. Professor Richard cleared all my questions and doubts by explaining the problem in the discussion session.
+      Another place where I had the most trouble was at SeparateChainingHashST<> distFrom(). I used the checklist as guidance
+      and followed the steps, but it was still unclear to me. With the help of the practice problems and an overview of the
+      lecture notes, I was then able to figure out an approach for my problem. I also watched a few YouTube videos to clear
+      my doubts on Breadth-First Search, as this also provided a great review for the final. Int[] triad also gave me coding
+      issues and difficulties but looking back at the exercises and questions asked on the piazza, I was able to resolve
+      my issues quickly. Other than, minor coding errors, illegal arguments, corner case implementations, I was able to
+      finish problem 2 with trial and error. I used the textbook, discussion notes, lecture materials, and other useful
+      materials to help me complete problem 2.
+
+   Problem 3 (Outcast Data Type)
+      Approach: For problem 3, I first started by understanding the question and concepts properly.
+      I then created private WordNet wordnet. In Outcast(), given the WordNet semantic lexicon,
+      I then initialized wordnet to this.wordnet. After initializing the variables, in String outcast(),
+      I created int dist = 0 and String oca = nouns[0], which is an outcast noun. Using the necessary for-loops
+      and if statements, I then computed the sum of the distances, using wordnet, between each noun in nouns,
+      and then lastly returned the noun with the largest distance. String outcast() returns oca, which is the outcast noun.
+      Last but not least, I used check_style to check the style of my code.
+
+      Issues and resolution: I did not face any major issues while coding for Outcast.java.
+      The only issues I faced were minor loop errors, and illegal arguments, but with trial and error,
+      I was able to solve the problem. I also first had trouble understanding the overall problem,
+      but with the help of my father, we both created a clean approach to finishing problem 3.
+      With the help of the checklist hints, textbook, slide notes, and other materials, I was able to finish problem 3.
+
+4. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Richard Anarfi     TA           Discussion Session
+   Saradhi Valluru    Father       General Questions and Approach
+   Nick White         YouTuber     Coding Binary Search Tree Video
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   At first, starting the project, I struggled a lot, not knowing how to approach it.
+   But attending the discussion session and looking at questions asked in piazza,
+   I was slowly able to work my way towards working on this project. I found the recorded
+   lecture sessions and practice problems to be very helpful throughout the semester, as they
+   provided a more in-depth review of the materials. This was indeed a difficult project,
+   but I learned a lot of concepts and gathered much knowledge taught from the lectures.
+   Overall I enjoyed doing this project and would definitely recommend a fellow Java learner to give it a go.
+
+   I would also like to thank Professor Swami, Professor Richard, and other TAs for teaching this course this semester.
+   Thank you!

@@ -1,0 +1,114 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 25 - 30 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 4 >>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Deque)
+       Approach: The first step I did was understanding the question properly and reading the problem thoroughly.
+       Before I started coding and following the API, I first created a flow chart for problem 1.
+       The flowchart provided an overview of what to construct and where to use if statements or for loops,
+       as I always get confused midway coding. I then created int n (size of deque), and Node first and last which
+       represents the front and back of deque. IsEmpty() simply returns true or false if deque is empty and size()
+       returns the number of items in deque. In addFirst(), if item is null, then the statement should throw a new argument.
+       Addfirst() then adds the given item to the front of the deque and increments n by one. In addLast(),
+       if the item is null, the statement will also throw a new argument. Addlast() will add the given item to the back of
+       the deque and increment n by one. In peekFirst() if deque is empty, it should throw a new argument,
+       otherwise, it will return the item at front of the deque. If removeFirst() and removeLast() deques are empty,
+       it should throw a new argument. Otherwise, removeFirst() will remove and return the item at front of deque while
+       removeLast() will remove and return the item back of deque. Both will then decrement n by one.
+       Same with peekLast() and peekfirst() as if the deque is empty, it should throw a new argument.
+       Otherwise, peekLast() will return the item at the back of the deque, and peekFirst() will return the item at the front of the deque.
+       In private class DequeIterator..., I created Node current which represents the current node and initialized it.
+       hasNext() returns true if there are more items to iterate and false otherwise.
+       And last but not least, next() returns the item in current and the advances current to the next node.
+
+       Issues and resolution: For problem 1, I didn't have any major issues besides understanding the problem and overall
+       how to approach it. As stated in the report, I worked with my father on how to create a flowchart for the problems.
+       I also had trouble with constructing Nodes and deques, but a quick refresher of the discussion session helped me
+       understand better. AddFirst() and addLast() were also very confusing at first to construct but with the help of the
+       textbook and discussion session, I eventually figured it out slowly. Besides minor compiling, style, and coding errors,
+       I was able to solve this problem. It took me some time to understand the API.
+
+   Problem 2 (Sorting Strings)
+       Approach: My approach was to first understand the question properly and create a flowchart. As I followed the checklist hints,
+       I started by creating a deque d. StdIn.readAll() reads the user input and then stores it in String s.
+       I then split String s and stored it in String[] w. Int n is the length of String[] w. Using a for-loop to read each word w,
+       as i = 0 and i < n, the if statements will check if w is less than or greater than the first and last word in d.
+       If w is less than the first word of d, then it adds w to the front of d. If w is greater than the last word of d,
+       then w is added to the back of d. If the case is not both of those if-statements, then it will remove words that are
+       less than w in front of d and store them in a temporary stack t. w is then added to the front of d, and then it adds
+       words from s to the front of d too. After all the loops are completed, the program should print all the words from d to standard output.
+
+       Issues and resolution: I understood problem 2, but after getting the user input using StdIn.readAll(),
+       I was confused on how to eliminate all the spaces and get the correct length of the string. Using forums and checking on the internet,
+       I then decided to split String s by setting String[] w = s.split("\\w+"). This then allowed me to eliminate all the spaces in the string
+       and then get the correct length of String s. After constructing the deque and then following the checklist, I was then got stuck on why
+       I wasn't able to .pop() my deque in my while loop. I tried several methods to fix it but I was unfortunately not able to figure it out.
+       I knew my overall goal and how to output the correct answer, but I was confused with overall why I wasn't able to .pop() my deque.
+       I used the discussion session, checklist, and textbook to help me figure out the question.
+
+   Problem 3 (Random Queue)
+       Approach: The approach I took was to first understand the question properly and overall review the given API.
+       And just like the other problems, I created a flowchart to get an overview of what statements and loops to use.
+       I started by creating Item[] q which stores items of the queue and int n which is the size of the queue. I then initialized the variables,
+       making q with an initial capacity of 2. isEmpty() returns if the queue is empty or not and size() returns the number of items in a queue.
+       In enqueue(), if item is null, then it throws a new argument. Otherwise, if q is full capacity, it will resize it and double its capacity.
+       The item is inserted in q at index n and then increments n by one. Sample() returns q[r], where r is a random int from [0, n).
+       In dequeue(), if the queue is empty, then it will throw a new argument. Otherwise, q[r] is saved in item, q[r] is set to q[n - 1],
+       and q[n - 1] is set to null. If q is quarter capacity, then it will resize it to half its capacity. Lastly, it will decrement n by one
+       and return item. In the private class RandomQueueIterator..., I created Item[] items, which stores items of q, and int current, which is
+       the current index of the current item. In RandomQueueIterator(), I initialized items with n capacity and then used a for-loop to copy n items
+       from q to items. I then shuffled items using StdRandom.shuffle() and initialized current. hasNext() will return whether the iterator has more
+       items to iterate or not and next() will return item at index current, and then advance to next current.
+
+       Issues and resolution: The major issue I had was understanding the problem itself and creating the flowchart.
+       So many times, I ran into dead ends and had to start over to get a better understanding.
+       I believe this was the question I spent the most time on. I had trouble understanding the API and overall how to start,
+       but Professor Richard Anarafi did a great job explaining during the discussion session.
+       Other than trial and errors and trying to make the code work, I was able to solve this problem.
+       I also ran into a compiling error message. My code was able to compile but for some reason, it stated "uses unchecked or unsafe operation."
+       Reviewing the lectures, the discussion session, practice problems, and the textbook all helped me with this problem.
+
+   Problem 4 (Sampling Integers)
+       Approach: The approach I took for this problem was to first understand the question properly and create a flowchart
+       to get an overview of the statements and loops I'll be using. I first started off by accepting int low, int hi, int k,
+       and String mode as command-line arguments. I then created a random queue called q which contains integers from interval [lo, hi].
+       Following simple if-else statements, if mode is "+," then sample and write k integers from q to standard output. If mode is "-,"
+       then dequeue and write k integers from q to standard output. If mode is neither "+" nor "-, "
+       then it will throw a new IllegalArgumentException().
+
+       Issues and resolution:I didn't face any major issues besides understanding the question and how to approach the problem itself.
+       Doing the practice exercises and the checklist hints were significant enough for me to complete Sample.java.
+       I believe creating a flow chart before coding is the best technique to approach a problem. The flow chart helped me understand
+       what I needed to do in order to get the right output. Along with the exercises problems and checklist, the discussion session
+       and the textbook helped me a lot too. All I faced were small coding issues and minor compiling and style errors.
+
+4. Did you receive help from anyone? List their names, status (classmate,
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Richard Anarfi     TA           Discussion Session
+   Saradhi Valluru    Father       Planning Approach & Creating Flow Charts
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   Project 2 was a difficult project, and I had trouble approaching the questions several times,
+   but I managed to understand the overall concepts and theorems. Although the difficulty of the project,
+   I enjoyed doing the questions and learning along the way. I still have a few errors and compiling issues,
+   but I am eager to learn more about my mistakes and fix them.
+   My father helped me understand the overall questions and how to approach them.
+
+   P.S. (Sorry for making my report long. I didn't realize how long it was until submitting it.
+   Please let me know if I am writing too much, and I can shorten it.)

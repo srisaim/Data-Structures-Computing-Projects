@@ -1,0 +1,91 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 30 - 35 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 5 >>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Brute-force Implementation)
+      Approach: The first thing I did was read the problem carefully and understand the question.
+      After fully understanding the question, I created a flowchart for BrutePointST.java to create a cleaner approach for this problem.
+      I started by creating an underlying data structure to store 2d points and their corresponding values,
+      which is private RedBlackBST<Point2D, Value> bst. I then initialized the variable bst to this.bst.
+      IsEmpty() returns true if bst is empty or false otherwise. Similar with size() as it returns the size of this.bst.
+      For put() a NullPointerException() with a message is thrown if p is null or value is null.
+      It then inserts the given point and value into this.bst. For get() a NullPointerException() with a message is thrown if p is null.
+      It then returns the value associated with p in this.bst. For contains() a NullPointerException() with a message is thrown if p is null.
+      It then returns whether this.bst contains p or not. Iterable<Point2D> points() returns iterable object with all the points in this.bst.
+      For Iterable<Point2D> range, a NullPointerException() with a message is thrown if rect is null.
+      Creating a for-loop, it then returns an iterable object with all points inside the rectangle.
+      For Point2D nearest, a NullPointerException() with a message is thrown if p is null. It then returns a point that is nearest and different from given point.
+      For Iterable<Point2D> nearest, a NullPointerException() with a message is thrown if p is null.
+      Creating Minpq and a LinkedQueue point, and using for-loops, it returns up to k points that are different and nearest to the given point.
+      I then last but not least used check_style to check the style of my code.
+
+      Issues and resolution: I encountered several issues for problem 1 but I was luckily able to resolve them.
+      For starters, I was confused on how to approach the problem and overall create a plan.
+      Professor Richard Anarfi did a great job explaining the ideas and methods to use in problem 1.
+      And with the help of my father, I was able to construct a flow chart to plan out my code.
+      Another issue I encountered was with Iterable<Point2D> nearest, as I was having trouble returning up to k points.
+      Following the checklist and with my understanding, my first thought was to create a while-loop, as the loop will run if the LinkedQueue point is less than k.
+      My program kept on giving me an error and I was not able to fully resolve the issues in the while-loop.
+      I then decided to switch the method of using a while-loop into for-loops, and after a few trials and errors,
+      I was able to make Iterable<Point2D> nearest work. A minor problem I encountered while trying to compile my code was getting an error for the implementation of PointST.
+      I realized I needed to compile PointST first before compiling BrutePointST.
+      I also faced other minor issues, but with the feedback from Gradescope, checklist, textbook, and the discussion session,
+      I was able to resolve my doubts.
+
+   Problem 2 (2dTree Implementation)
+      Approach: The approach I took for this problem was to first understand the question itself. After creating my flow chart for problem 2,
+      I started by creating private Node root and int n, which is the number of nodes. I then initialized variables root and int n appropriately.
+      IsEmpty() simply returns true if 2dTree is empty or false if not. Size() returns the number of nodes in 2dTree, which is this.n.
+      For void put(), if p or value is null, a new NullPointerException() with a message would be thrown.
+      I then called private put() method with the appropriate arguments to insert the given points and value into the symbol table.
+      For Value get(), if p is null, then a new NullPointerException() with a message would be thrown. I then called private get() method with
+      the appropriate arguments to find value corresponding to the given point. For boolean contains(), if p is null, then a new NullPointerException()
+      with a message would be thrown. It then returns whether the given point is in the 2dTree or not. For Iterable<Point2D> points(),
+      I created 2 LinkedQueues which is queue1 and queue2. Then using a while-loop, I used a queue for the traversal and the other to collect the points.
+      In the end, queue2 is returned, which is all the points in the 2dTree. For Iterable<Points2D> range(), if rect is null, then a new NullPointerException()
+      with a message would be thrown. After creating a LinkedQueue queue, I called private range() method with the appropriate arguments, and then returned the queue.
+      For Point2D nearest(), if p is null, then a new NullPointerException() with a message would be thrown. It then returns the point that is different from and closest
+      to the given point using the private method nearest(). For Iterable<Point2D> nearest(), I created MaxPQ<Point2D> maxpq to be passed in the private method nearest().
+      It finally returns maxpq at the end, which is points up to k points. For Node put(), if x is null, it returns a new Node object, and if the point in x is the same
+      as the given point, it should return x. And then using lr to decide which coordinate to use, I recursively called put() with the appropriate arguments to insert the
+      given point and value into the left (x.lb) and right (x.rt) subtree depending on how x.p and p compare. Node put() finally at the end returns x. For Value get(),
+      if x is null, then it will return null, and if the point in x is the same as the given point, it will return the value of x. I then recursively called get() with the
+      appropriate arguments to find value corresponding to the given point of the left (x.lb) and right (x.rt) subtree depending how x.p and p compare. For void range(),
+      if x is null, then it will simply return. If rect contains the point in x, then it will enqueue the point into p. It then recursively calls range() on the left and right subtree.
+      For Point2D nearest(), if x is null, then it will return nearest. Point 2D near will equal nearest and near will then equal x.p. Using if-else statements,
+      it recursively calls nearest() on the left and right subtree and at the end returns near. Last but not least for void nearest(), if x is null or the size of pq is greater than k,
+      then it will simply return. If the point in x is different from the given point, it will then insert it into pq. If the size of pq is greater than k, it will remove the maximum point from the pq.
+      Using if-else statements, it will then call nearest() on the left and right subtree.
+
+      Issues and resolution: One of the major issues I had for problem 2 was understanding and how to approach the problem itself.
+      But luckily, the discussion session helped me approach this problem with a better understanding.
+      I also had trouble and issues with calling the private methods with the appropriate arguments,
+      but with trials and error and getting a better understanding, I was able to figure it out.
+      Some of the areas I had difficulty in coding were Node put(), Value get(), and Point2D nearest().
+      But like I said before, the discussion session video step-by-step helped me clear my doubts.
+      With the help of the checklist, textbook, discussion session, I was able to solve problem 2 after trials and errors.
+
+4. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Richard Anarfi     TA           Discussion Session
+   Saradhi Valluru    Father       Planning Approach
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   Hello professor, sorry for making my report long although I was trying to keep it short.
+   I wanted to explain my code step-by-step so I apologize for that. Thank you.
