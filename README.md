@@ -43,7 +43,7 @@ Searching and Sorting Techniques
   - Exploration of various searching and sorting algorithms.
 
 
-# Project Overview
+# Projects Overview
 
 Autocomplete Me:
   - Implementing algorithms for efficient search autocompletion.
